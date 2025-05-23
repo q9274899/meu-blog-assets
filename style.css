@@ -251,3 +251,19 @@ ul {
 .section-image:hover .image-title-overlay {
     opacity: 1;
 }
+/* Para substituir o estilo inline removido dos links de imagem dentro dos separadores */
+.separator {
+    clear: both; /* Mantém o comportamento de quebra de linha */
+}
+
+.separator-link { /* Nova classe para os links que antes tinham estilo inline */
+    display: block;
+    padding: 1em 0;
+    text-align: center;
+}
+
+/* Remover bordas padrão de imagens (substitui border="0") */
+img {
+    border: none;
+}
+
