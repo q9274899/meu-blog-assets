@@ -1,4 +1,166 @@
 /* ==========================================================================
+   Variáveis CSS para consistência e fácil manutenção
+   ========================================================================== */
+:root {
+    --spacing-xs: 5px;
+    --spacing-sm: 10px;
+    --spacing-md: 20px;
+    --spacing-lg: 30px;
+
+    --border-radius-sm: 5px;
+    --border-radius-md: 8px;
+    --border-radius-lg: 10px;
+    --border-radius-circle: 50%;
+
+    --color-primary: #5cb85c; /* Verde para destaque */
+    --color-secondary: #337ab7; /* Azul para links/botões */
+    --color-background-light: #f4f4f4;
+    --color-background-white: #fff;
+    --color-text-dark: #333;
+    --color-grey-text: #555;
+    --color-light-text: #fff;
+    --color-shadow: rgba(0, 0, 0, 0.1);
+    --color-overlay: rgba(0, 0, 0, 0.6); /* Overlay padrão para imagens */
+
+    --font-size-sm: 0.8em;
+    --font-size-md: 1em;
+    --font-size-lg: 1.2em;
+    --font-size-xl: 1.8em; /* Para títulos maiores */
+
+    --transition-speed: 0.3s;
+    --transition-timing-function: ease;
+}
+
+/* ==========================================================================
+   Estilos Globais
+   ========================================================================== */
+body {
+    font-family: 'Open Sans', sans-serif;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: var(--color-background-light);
+    color: var(--color-text-dark);
+}
+
+.container {
+    width: 95%;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* ==========================================================================
+   Seções de Conteúdo (Receita, Marketing, Histórico)
+   ========================================================================== */
+.recipe {
+    width: 100%;
+    padding: var(--spacing-md);
+    border: 1px solid #ddd;
+    border-radius: var(--border-radius-md);
+    box-sizing: border-box;
+    margin-bottom: var(--spacing-md);
+    background-color: var(--color-background-white);
+}
+
+.recipe h2 {
+    text-align: center;
+    margin-bottom: var(--spacing-md);
+    color: var(--color-primary);
+}
+
+.recipe p {
+    text-align: center;
+    margin-bottom: var(--spacing-md);
+}
+
+.recipe-details {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: var(--spacing-sm);
+    margin-bottom: var(--spacing-md);
+}
+
+.recipe-details div {
+    flex: 1;
+    min-width: 150px;
+    padding: var(--spacing-sm);
+    border: 1px solid #eee;
+    border-radius: var(--border-radius-sm);
+    text-align: center;
+    background-color: #f9f9f9;
+}
+
+ul {
+    list-style-type: disc;
+    padding-left: var(--spacing-md);
+    margin-bottom: var(--spacing-md);
+}
+
+.recipe li {
+    margin: var(--spacing-sm) 0;
+}
+
+.marketing,
+.history {
+    margin-bottom: var(--spacing-md);
+    padding: var(--spacing-md);
+    border: 1px solid #ddd;
+    border-radius: var(--border-radius-md);
+    background-color: var(--color-background-white);
+}
+
+.marketing h2,
+.history h2 {
+    text-align: center;
+    margin-bottom: var(--spacing-md);
+    color: var(--color-primary);
+}
+
+.marketing h3 {
+    margin-top: var(--spacing-md);
+    margin-bottom: var(--spacing-sm);
+    color: var(--color-primary);
+}
+
+.marketing p,
+.history p {
+    text-align: left;
+    margin-bottom: var(--spacing-sm);
+    line-height: 1.7;
+}
+
+.marketing ul {
+    list-style-type: disc;
+    padding-left: var(--spacing-md);
+    margin-bottom: 15px;
+}
+
+.marketing li {
+    margin-bottom: 8px;
+    line-height: 1.7;
+}
+
+.history blockquote {
+    margin: 25px 0;
+    padding-left: var(--spacing-md);
+    border-left: 3px solid #ccc;
+    font-style: italic;
+    color: #777;
+}
+
+.history blockquote p {
+    margin-bottom: 5px;
+}
+
+/* ==========================================================================
    Imagens e Galerias
    ========================================================================== */
 
@@ -81,7 +243,7 @@
     background-color: rgba(0, 0, 0, 0.4); /* Overlay mais suave */
 }
 
-/* Play icon para link de vídeo na imagem */
+/* Play icon para link de vídeo na imagem (para o .separator-link.video-link) */
 .separator-link.video-link {
     position: relative;
     display: block;
@@ -91,12 +253,12 @@
 .separator-link.video-link img {
     /* Herda estilos de .section-image img, mas garante que seja um bloco */
     display: block;
-    width: 100%; 
+    width: 100%;
     max-width: 560px; /* Mantém o padrão de largura */
-    height: auto; 
-    margin: 0 auto; 
+    height: auto;
+    margin: 0 auto;
     /* Remove transição de filtro no hover para não competir com o ícone */
-    transition: none; 
+    transition: none;
 }
 
 .separator-link.video-link:hover img {
@@ -128,13 +290,13 @@
     transform: translate(-50%, -50%) scale(1.1); /* Efeito de zoom no hover */
 }
 
-/* Mosaico (do seu CSS original) */
+/* Mosaico */
 .mosaic {
     display: flex;
     justify-content: center;
-    gap: var(--spacing-sm);
+    gap: var(--spacing-sm); /* Espaçamento entre os itens */
     margin-bottom: var(--spacing-md);
-    flex-wrap: wrap;
+    flex-wrap: wrap; /* Garante que os itens quebrem linha em telas menores */
 }
 .mosaic a {
     border-radius: var(--border-radius-circle);
@@ -152,5 +314,5 @@
 .mosaic img {
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: cover; /* Garante que a imagem preencha o container sem distorção */
 }
