@@ -429,3 +429,6 @@ a:hover {
     background-color: rgba(0, 0, 0, 0.8);
     transform: translate(-50%, -50%) scale(1.1); /* Efeito de zoom no hover */
 }
+figcaption {
+  background-color: transparent;
+}
